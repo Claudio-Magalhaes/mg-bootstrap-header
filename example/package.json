@@ -13,7 +13,10 @@
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "react-scripts": "link:../node_modules/react-scripts",
-    "mg-bootstrap-header": "link:.."
+    "mg-bootstrap-header": "link:..",
+    "bootstrap": "link:../node_modules/bootstrap",
+    "prop-types": "link:../node_modules/prop-types",
+    "react-bootstrap": "link:../node_modules/react-bootstrap"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3"
