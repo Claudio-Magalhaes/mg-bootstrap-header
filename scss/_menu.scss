@@ -1,0 +1,20 @@
+.header {
+
+  .mainMenu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: outside none none;
+
+    li {
+      a {
+        font-size: 16px;
+        font-weight: 600;
+        opacity: 1;
+        padding: 1rem;
+      }
+    }
+  }
+
+}

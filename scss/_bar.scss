@@ -1,0 +1,15 @@
+.header {
+  background-color: antiquewhite;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  left: 0;
+  transition-duration: 700ms; // enviar para js
+  padding-left: 1.5rem;
+
+  &.stick {
+    position: fixed;
+    background-color: black;
+  }
+}

@@ -1,0 +1,9 @@
+@import "../node_modules/mg-main-style-site/src/variables";
+
+$theme-color: red;
+
+@import "./bar";
+@import "./menu";
+@import "./btnMobile";
+@import "./mobileMenu";
+@import "./mobileMenuNav";

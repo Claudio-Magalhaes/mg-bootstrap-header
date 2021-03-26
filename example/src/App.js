@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { ExampleComponent } from 'mg-bootstrap-header'
-import 'mg-bootstrap-header/dist/index.css'
+import Header from 'mg-bootstrap-header'
+import './index.scss'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+    <Router>
+      <Header
+        menu={[
+          { name: 'Início', url: '/' },
+          { name: 'Sobre', url: '/' },
+          { name: 'Serviços', url: '/' },
+          { name: 'Quem Somos', url: '/' },
+          { name: 'Contato', url: '/' }
+        ]}
+      />
+      <div style={{height: '100rem'}} />
+    </Router>
+  )
 }
 
 export default App

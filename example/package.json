@@ -11,15 +11,19 @@
   },
   "dependencies": {
     "react": "link:../node_modules/react",
+    "react-icons": "link:../node_modules/react-icons",
     "react-dom": "link:../node_modules/react-dom",
     "react-scripts": "link:../node_modules/react-scripts",
     "mg-bootstrap-header": "link:..",
+    "mg-main-style-site": "link:../node_modules/mg-main-style-site",
     "bootstrap": "link:../node_modules/bootstrap",
     "prop-types": "link:../node_modules/prop-types",
-    "react-bootstrap": "link:../node_modules/react-bootstrap"
+    "react-bootstrap": "link:../node_modules/react-bootstrap",
+    "react-router-dom": "link:../node_modules/react-router-dom"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-object-rest-spread": "^7.8.3"
+    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+    "node-sass": "link:../node_modules/node-sass"
   },
   "eslintConfig": {
     "extends": "react-app"
