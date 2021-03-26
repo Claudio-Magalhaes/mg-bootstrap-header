@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react'
-import { Col, Row } from 'react-bootstrap'
-import Navigation from '../components/navigation'
-import HeaderBtn from '../components/btnMobile'
+import { Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const index = ({ horizontalAlign, verticalAlign, menu, NodeMenu }) => {

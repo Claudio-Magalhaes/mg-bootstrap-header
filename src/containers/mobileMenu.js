@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import MobileNavMenu from '../components/mobileMenuNav'
+import MobileWidgets from "../components/mobileNavContatos";
 import { IoMdClose } from 'react-icons/io'
 
 const MobileMenu = (prop) => {
@@ -52,6 +53,8 @@ const MobileMenu = (prop) => {
       <div className='offcanvasWrapper'>
         <div className='offcanvasInnerContent'>
           <MobileNavMenu />
+
+          <MobileWidgets />
         </div>
       </div>
     </div>

@@ -58,8 +58,6 @@ index.defaultProps = {
 }
 
 index.propTypes = {
-  // preHeader
-  pre: propTypes.node,
   // direcao: propTypes.oneOf(['normal', 'revert', 'center']),
 
   menu: propTypes.array,
@@ -69,9 +67,7 @@ index.propTypes = {
     size: propTypes.shape({
       xl: propTypes.number,
       lg: propTypes.number,
-      md: propTypes.number,
-      sm: propTypes.number,
-      xs: propTypes.number
+      md: propTypes.number
     })
   }),
   NodeMenu: propTypes.node,

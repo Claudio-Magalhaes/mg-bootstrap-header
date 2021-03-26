@@ -55,6 +55,9 @@
 
 .header {
   /* offcanvas mobile menu */
+  /* close btn */
+  /* estilo e compoetamento */
+  /* compotamento interno/"dos filhos" */
   /* offcanvas settings */
 }
 .header .offcanvasMobileMenu {
@@ -121,50 +124,19 @@
     padding: 70px 25px 0;
   }
 }
-.header .offcanvasSettings .offcanvasNavigation > ul > li > a {
-  font-size: 12px;
-  font-weight: 400;
-  padding: 5px 0;
-}
-.header .offcanvasSettings .offcanvasNavigation > ul > li.menuItemHaschildren .menuExpand {
-  top: -15px;
-  height: 30px;
-  margin-top: 0;
-}
-.header .offcanvasSettings .offcanvasNavigation ul.subMenu > li > a {
-  padding: 5px 0;
-}
 .header .offcanvasNavigation {
   margin-bottom: 50px;
 }
-.header .offcanvasNavigation > ul {
-  padding-left: 0;
-}
-.header .offcanvasNavigation > ul li.menuItemHasChildren .subMenu {
+.header .offcanvasNavigation ul li.menuItemHasChildren .subMenu {
   visibility: hidden;
   height: 0;
   transition: 0.3s;
   opacity: 0;
 }
-.header .offcanvasNavigation > ul li.menuItemHasChildren.active > .subMenu {
+.header .offcanvasNavigation ul li.menuItemHasChildren.active > .subMenu {
   visibility: visible;
   height: 100%;
   opacity: 1;
-}
-.header .offcanvasNavigation > ul li > a {
-  font-weight: 600;
-  display: block;
-  padding: 10px 0;
-  color: #111;
-}
-.header .offcanvasNavigation > ul li > a:hover {
-  color: red;
-}
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .header .offcanvasNavigation > ul li > a {
-    font-size: 14px;
-    line-height: 20px;
-  }
 }
 .header .offcanvasNavigation ul.subMenu {
   margin-left: 25px;
@@ -186,7 +158,20 @@
   }
 }
 .header .offcanvasNavigation ul li a {
+  font-weight: 600;
+  display: block;
+  padding: 10px 0;
+  color: #111;
   text-transform: uppercase;
+}
+.header .offcanvasNavigation ul li a:hover {
+  color: red;
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .header .offcanvasNavigation ul li a {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 .header .offcanvasNavigation ul li.menuItemHasChildren {
   position: relative;
@@ -225,6 +210,15 @@
   content: "";
   transform: rotate(90deg);
   border-bottom: 1px solid;
+}
+.header .offcanvasWidgetArea {
+  margin-top: auto;
+  margin-bottom: 35px;
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .header .offcanvasWidgetArea {
+    margin-bottom: 30px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
