@@ -1,15 +1,35 @@
 import React, { Fragment } from 'react'
 import { Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import propTypes from 'prop-types'
 
 const index = (props) => {
-  const { align, menu, NodeMenu, cols, expand } = props
+  const { align, menu, NodeMenu, cols, expand, typeMenu, offsetClass } = props
+
+  const TypeRender = ({ m }) => {
+    if (m.action) {
+      return <span onClick={() => m.action()}>{m.name}</span>
+    } else if (m.render) {
+      const Render = m.render
+      return <Render />
+    } else if (m.url) {
+      const active = window.location.pathname === m.url ? 'active' : ''
+      return (
+        <a
+          className={active}
+          alt={m.name}
+          href={process.env.PUBLIC_URL + m.url}
+        >
+          {m.name}
+        </a>
+      )
+    }
+    return null
+  }
+
   return (
     <Fragment>
       <Col
         className={`d-none d-${expand}-flex justify-content-${align.horizontal}
-            align-items-${align.vertical}`}
+            align-items-${align.vertical} ${typeMenu}`}
         xl={cols.xl}
         lg={cols.lg}
         md={cols.md}
@@ -20,12 +40,10 @@ const index = (props) => {
           <NodeMenu />
         ) : (
           <nav>
-            <ul className='mainMenu m-0 align-items-end'>
+            <ul className={`mainMenu m-0 align-items-end  ${offsetClass}`}>
               {menu.map((m, k) => (
                 <li key={k}>
-                  <Link alt={m.name} to={process.env.PUBLIC_URL + m.url}>
-                    {m.name}
-                  </Link>
+                  <TypeRender m={m} />
                 </li>
               ))}
             </ul>

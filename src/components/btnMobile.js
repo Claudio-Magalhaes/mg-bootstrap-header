@@ -2,7 +2,7 @@ import React from 'react'
 import { Col } from 'react-bootstrap'
 import { IoIosMenu } from 'react-icons/io'
 
-const HeaderBtn = ({ cols, hide, align }) => {
+const HeaderBtn = ({ cols, hide, align, offsetClass }) => {
   const triggerMobileMenu = () => {
     const offcanvasMobileMenu = document.querySelector('#offcanvas-mobile-menu')
     offcanvasMobileMenu.classList.add('active')
@@ -20,7 +20,7 @@ const HeaderBtn = ({ cols, hide, align }) => {
       <div className='header-btn-wrapper'>
         <div className='mobile-button-wrapper d-block d-lg-none text-right'>
           <button
-            className='mobile-aside-button'
+            className={`mobile-aside-button ${offsetClass}`}
             onClick={() => triggerMobileMenu()}
           >
             <IoIosMenu />

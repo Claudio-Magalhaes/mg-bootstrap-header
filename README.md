@@ -210,7 +210,7 @@ Propriedade | type | Descrição
 --- | --- | ---
 offsetHeight | string | Quando o topo da tela atingir o final da header
 offsetTop | string | Quando o topo da tela for maior que 0
-number | number | Altura em pixels
+number | int | Altura em pixels
 
 #### CLASSBAR
 Nome de uma cçasse com animação já existente, ou, um novo nome de classe que faça

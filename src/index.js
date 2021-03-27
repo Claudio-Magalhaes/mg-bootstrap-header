@@ -11,15 +11,31 @@ const index = (props) => {
   const [scroll, setScroll] = useState(0)
   const [headerTop, setHeaderTop] = useState('1000')
 
-  useEffect(() => {
-    const header = document.querySelector('header')
+  const offsetClass = {
+    offset: props.offsetReact.offset ? props.offsetReact.offset : 100,
+    classBar: props.offsetReact.classBar ? props.offsetReact.classBar : '',
+    classMenu: props.offsetReact.classMenu
+      ? props.offsetReact.classMenu
+      : 'offsetAction',
+    classMenu2: props.offsetReact.classMenu2
+      ? props.offsetReact.classMenu2
+      : 'offsetAction',
+    classBtnMobile: props.offsetReact.classBtnMobile
+      ? props.offsetReact.classBtnMobile
+      : 'offsetAction'
+  }
 
-    if (typeof props.offsetReact.offset === 'number') {
-      setHeaderTop(props.offsetReact.offset)
-    } else {
-      setHeaderTop(header[props.offsetReact.offset])
+  useEffect(() => {
+    if (offsetClass.offset) {
+      const header = document.querySelector('header')
+
+      if (typeof offsetClass.offset === 'number') {
+        setHeaderTop(offsetClass.offset)
+      } else {
+        setHeaderTop(header[offsetClass.offset])
+      }
+      window.addEventListener('scroll', handleScroll, true)
     }
-    window.addEventListener('scroll', handleScroll, true)
   }, [])
 
   const handleScroll = () => {
@@ -32,13 +48,15 @@ const index = (props) => {
         id='site-header'
         className={`header d-flex
           align-items-${props.align.bar ? props.align.bar : 'end'}
-          ${scroll > headerTop ? props.offsetReact.classes.bar : ''}
+          ${scroll > headerTop ? offsetClass.classBar : ''}
         `}
       >
         <Row className='container-fluid'>
           <Logo cols={props.cols.logo} align={props.align.logo} />
           {/* NAVIGATIONS */}
           <Navigation
+            typeMenu='menu'
+            offsetClass={scroll > headerTop ? offsetClass.classMenu : ''}
             menu={props.menu}
             cols={props.cols.menu}
             expand={props.expand.menu}
@@ -46,6 +64,8 @@ const index = (props) => {
           />
           {props.menu2 ? (
             <Navigation
+              typeMenu='menu2'
+              offsetClass={scroll > headerTop ? offsetClass.classMenu2 : ''}
               menu={props.menu2}
               cols={props.cols.menu2}
               expand={props.expand.menu2}
@@ -54,6 +74,7 @@ const index = (props) => {
           ) : null}
           {/* NAVIGATIONS */}
           <BtnMenu
+            offsetClass={scroll > headerTop ? offsetClass.classBtnMobile : ''}
             hide={props.expand.hideBtnMobile}
             cols={props.cols.btnMobile}
             align={props.align.btnMobile}
@@ -71,10 +92,7 @@ index.defaultProps = {
   cols: {},
   align: {},
   expand: {},
-  offsetReact: 'offsetHeight',
-  animatOffsetClass: {
-    bar: 'stick'
-  }
+  offsetReact: {}
 }
 
 index.propTypes = {
