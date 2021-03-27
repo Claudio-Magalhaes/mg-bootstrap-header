@@ -132,7 +132,7 @@
 
             padding: 10px 0;
             &:hover {
-              color: $theme-color;
+              //color: $theme-color;
             }
 
             @media #{$sm-layout} {
@@ -152,7 +152,7 @@
 
           color: #111;
           &:hover {
-            color: $theme-color;
+            //color: $theme-color;
           }
           text-transform: uppercase;
 

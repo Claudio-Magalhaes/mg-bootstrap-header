@@ -1,6 +1,6 @@
 #site-header {
 
-  .mainMenu {
+  .mainMenu, .mainMenu2 {
     position: relative;
     display: flex;
     align-items: center;
@@ -8,7 +8,9 @@
     list-style: outside none none;
 
     li {
-      a {
+      a, span{
+        cursor: pointer;
+        text-decoration: none;
         font-size: 16px;
         font-weight: 600;
         opacity: 1;

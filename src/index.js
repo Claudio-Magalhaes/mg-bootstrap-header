@@ -52,7 +52,11 @@ const index = (props) => {
         `}
       >
         <Row className='container-fluid'>
-          <Logo cols={props.cols.logo} align={props.align.logo} />
+          <Logo
+            logo={props.logo}
+            cols={props.cols.logo}
+            align={props.align.logo}
+          />
           {/* NAVIGATIONS */}
           <Navigation
             typeMenu='menu'

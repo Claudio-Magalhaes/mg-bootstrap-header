@@ -1,2 +1,12 @@
 @import "../../node_modules/mg-main-style-site/src/index";
 @import "../node_modules/mg-bootstrap-header/scss/index";
+
+#site-header {
+  background-color: black;
+  height: 100px;
+  padding: 5px;
+
+  .site-logo {
+    max-height: 60px;
+  }
+}
