@@ -1,16 +1,20 @@
 import React, { Fragment } from 'react'
 import { Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import propTypes from 'prop-types'
 
-const index = ({ horizontalAlign, verticalAlign, menu, NodeMenu }) => {
+const index = (props) => {
+  const { align, menu, NodeMenu, cols, expand } = props
   return (
     <Fragment>
       <Col
-        className={`d-none d-md-flex justify-content-${horizontalAlign}
-            align-items-${verticalAlign}`}
-        xl={10}
-        lg={10}
-        md={10}
+        className={`d-none d-${expand}-flex justify-content-${align.horizontal}
+            align-items-${align.vertical}`}
+        xl={cols.xl}
+        lg={cols.lg}
+        md={cols.md}
+        sm={cols.sm}
+        xs={cols.xs}
       >
         {NodeMenu ? (
           <NodeMenu />
@@ -30,6 +34,23 @@ const index = ({ horizontalAlign, verticalAlign, menu, NodeMenu }) => {
       </Col>
     </Fragment>
   )
+}
+
+index.defaultProps = {
+  cols: {
+    xl: 9,
+    lg: 9,
+    md: 9,
+    sm: 8,
+    xs: 8
+  },
+  align: {
+    horizontal: 'center',
+    vertical: 'center'
+  },
+  menu: [{ name: 'Início', url: '/' }],
+  //
+  expand: 'md'
 }
 
 export default index

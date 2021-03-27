@@ -2,7 +2,7 @@ import React from 'react'
 import { Col } from 'react-bootstrap'
 import { IoIosMenu } from 'react-icons/io'
 
-const HeaderBtn = (prop) => {
+const HeaderBtn = ({ cols, hide, align }) => {
   const triggerMobileMenu = () => {
     const offcanvasMobileMenu = document.querySelector('#offcanvas-mobile-menu')
     offcanvasMobileMenu.classList.add('active')
@@ -10,9 +10,12 @@ const HeaderBtn = (prop) => {
 
   return (
     <Col
-      className='d-flex d-md-none  justify-content-end align-items-center'
-      sm={10}
-      md={10}
+      className={`d-flex d-${hide}-none justify-content-${align.horizontal} align-items-${align.vertical}`}
+      xl={cols.xl}
+      lg={cols.lg}
+      md={cols.md}
+      sm={cols.sm}
+      xs={cols.xs}
     >
       <div className='header-btn-wrapper'>
         <div className='mobile-button-wrapper d-block d-lg-none text-right'>
@@ -26,6 +29,21 @@ const HeaderBtn = (prop) => {
       </div>
     </Col>
   )
+}
+
+HeaderBtn.defaultProps = {
+  hide: 'md',
+  cols: {
+    xl: 1,
+    lg: 1,
+    md: 10,
+    ms: 10,
+    xs: 4
+  },
+  align: {
+    horizontal: 'end',
+    vertical: 'end'
+  }
 }
 
 export default HeaderBtn

@@ -4,7 +4,7 @@
  */
 /* Layouts*/
 /*===== Social Colors =====//*/
-.header {
+#site-header {
   background-color: antiquewhite;
   position: absolute;
   z-index: 999;
@@ -14,26 +14,25 @@
   transition-duration: 700ms;
   padding-left: 1.5rem;
 }
-.header.stick {
+#site-header.stick {
   position: fixed;
-  background-color: black;
 }
 
-.header .mainMenu {
+#site-header .mainMenu {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   list-style: outside none none;
 }
-.header .mainMenu li a {
+#site-header .mainMenu li a {
   font-size: 16px;
   font-weight: 600;
   opacity: 1;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
-.header .mobile-aside-button {
+#site-header .mobile-aside-button {
   font-size: 34px;
   width: 30px;
   height: 30px;
@@ -43,24 +42,24 @@
   border: none;
   background: none;
 }
-.header .mobile-aside-button svg {
+#site-header .mobile-aside-button svg {
   width: 100%;
   height: 100%;
   margin-top: 5px;
   vertical-align: top;
 }
-.header .mobile-aside-button:focus {
+#site-header .mobile-aside-button:focus {
   outline: none;
 }
 
-.header {
+#site-header {
   /* offcanvas mobile menu */
   /* close btn */
   /* estilo e compoetamento */
   /* compotamento interno/"dos filhos" */
   /* offcanvas settings */
 }
-.header .offcanvasMobileMenu {
+#site-header .offcanvasMobileMenu {
   position: fixed;
   z-index: 999999999999;
   top: 0;
@@ -72,13 +71,13 @@
   transition: 0.6s;
   transform: translateX(100%);
 }
-.header .offcanvasMobileMenu.active {
+#site-header .offcanvasMobileMenu.active {
   transform: translateX(0);
 }
-.header .offcanvasMobileMenu.inactive {
+#site-header .offcanvasMobileMenu.inactive {
   transform: translateX(calc(100% + 60px));
 }
-.header .offcanvasMenuClose {
+#site-header .offcanvasMenuClose {
   font-size: 30px;
   line-height: 1;
   position: absolute;
@@ -93,97 +92,97 @@
   border: none;
   background: #343538;
 }
-.header .offcanvasMenuClose:hover, .header .offcanvasMenuClose:focus {
+#site-header .offcanvasMenuClose:hover, #site-header .offcanvasMenuClose:focus {
   color: #FFF;
   outline: none;
 }
-.header .offcanvasMenuClose i {
+#site-header .offcanvasMenuClose i {
   font-size: 40px;
   line-height: 1;
   margin-top: 12px;
   transition: 0.3s;
   transform: rotate(0);
 }
-.header .offcanvasMenuClose:hover i {
+#site-header .offcanvasMenuClose:hover i {
   transform: rotate(-90deg);
 }
-.header .offcanvasWrapper {
+#site-header .offcanvasWrapper {
   overflow: auto;
   height: 100%;
   background-color: #FFF;
   box-shadow: 0 0 87px 0 rgba(0, 0, 0, 0.09);
 }
-.header .offcanvasInnerContent {
+#site-header .offcanvasInnerContent {
   display: flex;
   flex-direction: column;
   height: 100%;
   padding: 90px 35px 0;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  .header .offcanvasInnerContent {
+  #site-header .offcanvasInnerContent {
     padding: 70px 25px 0;
   }
 }
-.header .offcanvasNavigation {
+#site-header .offcanvasNavigation {
   margin-bottom: 50px;
 }
-.header .offcanvasNavigation ul li.menuItemHasChildren .subMenu {
+#site-header .offcanvasNavigation ul li.menuItemHasChildren .subMenu {
   visibility: hidden;
   height: 0;
   transition: 0.3s;
   opacity: 0;
 }
-.header .offcanvasNavigation ul li.menuItemHasChildren.active > .subMenu {
+#site-header .offcanvasNavigation ul li.menuItemHasChildren.active > .subMenu {
   visibility: visible;
   height: 100%;
   opacity: 1;
 }
-.header .offcanvasNavigation ul.subMenu {
+#site-header .offcanvasNavigation ul.subMenu {
   margin-left: 25px;
   padding-left: 0;
   transition: 0.3s;
 }
-.header .offcanvasNavigation ul.subMenu > li > a {
+#site-header .offcanvasNavigation ul.subMenu > li > a {
   font-size: 13px;
   font-weight: 400;
   padding: 10px 0;
 }
-.header .offcanvasNavigation ul.subMenu > li > a:hover {
+#site-header .offcanvasNavigation ul.subMenu > li > a:hover {
   color: red;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  .header .offcanvasNavigation ul.subMenu > li > a {
+  #site-header .offcanvasNavigation ul.subMenu > li > a {
     font-size: 13px;
     line-height: 18px;
   }
 }
-.header .offcanvasNavigation ul li a {
+#site-header .offcanvasNavigation ul li a {
   font-weight: 600;
   display: block;
   padding: 10px 0;
   color: #111;
   text-transform: uppercase;
 }
-.header .offcanvasNavigation ul li a:hover {
+#site-header .offcanvasNavigation ul li a:hover {
   color: red;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  .header .offcanvasNavigation ul li a {
+  #site-header .offcanvasNavigation ul li a {
     font-size: 14px;
     line-height: 20px;
   }
 }
-.header .offcanvasNavigation ul li.menuItemHasChildren {
+#site-header .offcanvasNavigation ul li.menuItemHasChildren {
   position: relative;
   display: block;
 }
-.header .offcanvasNavigation ul li.menuItemHasChildren a {
+#site-header .offcanvasNavigation ul li.menuItemHasChildren a {
   display: block;
 }
-.header .offcanvasNavigation ul li.menuItemHasChildren.active > .menuExpand i:before {
+#site-header .offcanvasNavigation ul li.menuItemHasChildren.active > .menuExpand i:before {
   transform: rotate(0);
 }
-.header .offcanvasNavigation ul li.menuItemHasChildren .menuExpand {
+#site-header .offcanvasNavigation ul li.menuItemHasChildren .menuExpand {
   line-height: 50px;
   position: absolute;
   top: -5px;
@@ -194,7 +193,7 @@
   cursor: pointer;
   text-align: center;
 }
-.header .offcanvasNavigation ul li.menuItemHasChildren .menuExpand i {
+#site-header .offcanvasNavigation ul li.menuItemHasChildren .menuExpand i {
   position: relative;
   display: block;
   width: 10px;
@@ -202,7 +201,7 @@
   transition: all 250ms ease-out;
   border-bottom: 1px solid;
 }
-.header .offcanvasNavigation ul li.menuItemHasChildren .menuExpand i:before {
+#site-header .offcanvasNavigation ul li.menuItemHasChildren .menuExpand i:before {
   position: absolute;
   top: 0;
   display: block;
@@ -211,12 +210,12 @@
   transform: rotate(90deg);
   border-bottom: 1px solid;
 }
-.header .offcanvasWidgetArea {
+#site-header .offcanvasWidgetArea {
   margin-top: auto;
   margin-bottom: 35px;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  .header .offcanvasWidgetArea {
+  #site-header .offcanvasWidgetArea {
     margin-bottom: 30px;
   }
 }

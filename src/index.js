@@ -10,12 +10,15 @@ import MobileMenu from './containers/mobileMenu'
 const index = (props) => {
   const [scroll, setScroll] = useState(0)
   const [headerTop, setHeaderTop] = useState('1000')
-  const [preHeader, setPreHeader] = useState(true)
-  const [lastScrollTop, setLastScrollTop] = useState(0)
 
   useEffect(() => {
     const header = document.querySelector('header')
-    setHeaderTop(header.offsetHeight)
+
+    if (typeof props.offsetReact.offset === 'number') {
+      setHeaderTop(props.offsetReact.offset)
+    } else {
+      setHeaderTop(header[props.offsetReact.offset])
+    }
     window.addEventListener('scroll', handleScroll, true)
   }, [])
 
@@ -26,16 +29,35 @@ const index = (props) => {
   return (
     <Fragment>
       <header
-        className={`header d-flex align-items-${props.verticalAlignBar} ${
-          scroll > headerTop ? 'stick' : ''
-        } `}
+        id='site-header'
+        className={`header d-flex
+          align-items-${props.align.bar ? props.align.bar : 'end'}
+          ${scroll > headerTop ? props.offsetReact.classes.bar : ''}
+        `}
       >
         <Row className='container-fluid'>
-          <Logo />
+          <Logo cols={props.cols.logo} align={props.align.logo} />
           {/* NAVIGATIONS */}
-          <Navigation menu={props.menu} {...props.propsMenu} />
+          <Navigation
+            menu={props.menu}
+            cols={props.cols.menu}
+            expand={props.expand.menu}
+            align={props.align.menu}
+          />
+          {props.menu2 ? (
+            <Navigation
+              menu={props.menu2}
+              cols={props.cols.menu2}
+              expand={props.expand.menu2}
+              align={props.align.menu2}
+            />
+          ) : null}
           {/* NAVIGATIONS */}
-          <BtnMenu {...props} />
+          <BtnMenu
+            hide={props.expand.hideBtnMobile}
+            cols={props.cols.btnMobile}
+            align={props.align.btnMobile}
+          />
         </Row>
         {/* Mobile Menu */}
         <MobileMenu />
@@ -46,35 +68,89 @@ const index = (props) => {
 }
 
 index.defaultProps = {
-  menu: [{ name: 'Início', url: '/' }],
-  propsMenu: {
-    verticalAlign: 'center',
-    horizontalAlign: 'center'
-  },
-  direcao: 'revert',
-  verticalAlignBar: 'end',
-  verticalAlignMenu: 'center',
-  horzontelAligManu: 'center'
+  cols: {},
+  align: {},
+  expand: {},
+  offsetReact: 'offsetHeight',
+  animatOffsetClass: {
+    bar: 'stick'
+  }
 }
 
 index.propTypes = {
-  // direcao: propTypes.oneOf(['normal', 'revert', 'center']),
-
-  menu: propTypes.array,
-  propsMenu: propTypes.shape({
-    verticalAlign: propTypes.oneOf(['start', 'center', 'end']),
-    horizontalAlign: propTypes.oneOf(['start', 'center', 'end']),
-    size: propTypes.shape({
+  // COLUNAS
+  cols: propTypes.shape({
+    logo: propTypes.shape({
       xl: propTypes.number,
       lg: propTypes.number,
-      md: propTypes.number
+      md: propTypes.number,
+      sm: propTypes.number,
+      xs: propTypes.number
+    }),
+    menu: propTypes.shape({
+      xl: propTypes.number,
+      lg: propTypes.number,
+      md: propTypes.number,
+      sm: propTypes.number,
+      xs: propTypes.number
+    }),
+    menu2: propTypes.shape({
+      xl: propTypes.number,
+      lg: propTypes.number,
+      md: propTypes.number,
+      sm: propTypes.number,
+      xs: propTypes.number
+    }),
+    btnMobile: propTypes.shape({
+      xl: propTypes.number,
+      lg: propTypes.number,
+      md: propTypes.number,
+      sm: propTypes.number,
+      xs: propTypes.number
     })
   }),
+  // ALINHAMENTO
+  align: propTypes.shape({
+    bar: propTypes.oneOf(['start', 'center', 'end']),
+    logo: propTypes.shape({
+      horizontal: propTypes.oneOf(['start', 'center', 'end']),
+      vertical: propTypes.oneOf(['start', 'center', 'end'])
+    }),
+    menu: propTypes.shape({
+      horizontal: propTypes.oneOf(['start', 'center', 'end']),
+      vertical: propTypes.oneOf(['start', 'center', 'end'])
+    }),
+    menu2: propTypes.shape({
+      horizontal: propTypes.oneOf(['start', 'center', 'end']),
+      vertical: propTypes.oneOf(['start', 'center', 'end'])
+    }),
+    btnMobile: propTypes.shape({
+      horizontal: propTypes.oneOf(['start', 'center', 'end']),
+      vertical: propTypes.oneOf(['start', 'center', 'end'])
+    })
+  }),
+  //  EXPANSÕES
+  expand: propTypes.shape({
+    menu: propTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    menu2: propTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    hideBtnMobile: propTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl'])
+  }),
+  // ARRAY DE MENU
+  menu: propTypes.array,
+  // ARRAY DE MENU 2
+  menu2: propTypes.array,
+  // NODE MENU SUBSTITUIRÁ O MENU CONVENCIONAL CASO EXISTA
   NodeMenu: propTypes.node,
-
-  verticalAlignBar: propTypes.oneOf(['start', 'center', 'end']),
-  verticalAlignMenu: propTypes.oneOf(['start', 'center', 'end']),
-  horzontelAligManu: propTypes.oneOf(['start', 'center', 'end'])
+  // NODE MENU 2 SUBSTITUIRÁ O MENU CONVENCIONAL CASO EXISTA
+  NodeMenu2: propTypes.node,
+  // INFORMA QUANDO O HEADER DEVE RECEBAR A CLASSE DE INTERAÇÃO
+  offsetReact: propTypes.shape({
+    offset: propTypes.oneOf(['offsetHeight', 'offsetTop', propTypes.number]),
+    classBar: propTypes.string,
+    classMenu: propTypes.string,
+    classMenu2: propTypes.string,
+    classBtnMobile: propTypes.string
+  })
 }
 
 export default index
