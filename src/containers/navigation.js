@@ -2,19 +2,35 @@ import React, { Fragment } from 'react'
 import { Col } from 'react-bootstrap'
 
 const index = (props) => {
-  const { align, menu, NodeMenu, cols, expand, typeMenu, offsetClass } = props
+  const { menu, NodeMenu, expand, typeMenu, offsetClass } = props
+
+  const cols = {
+    xl: props.cols.xl ? props.cols.xl : 9,
+    lg: props.cols.lg ? props.cols.lg : 9,
+    md: props.cols.md ? props.cols.md : 9,
+    sm: props.cols.sm ? props.cols.sm : 8,
+    xs: props.cols.xs ? props.cols.xs : 8
+  }
+  const align = {
+    horizontal: props.align.horizontal ? props.align.horizontal : 'center',
+    vertical: props.align.vertical ? props.align.vertical : 'center'
+  }
 
   const TypeRender = ({ m }) => {
     if (m.action) {
-      return <span onClick={() => m.action()}>{m.name}</span>
+      return (
+        <span className='header-link' onClick={() => m.action()}>
+          {m.name}
+        </span>
+      )
     } else if (m.render) {
       const Render = m.render
-      return <Render />
+      return <Render offsetClass={offsetClass} />
     } else if (m.url) {
       const active = window.location.pathname === m.url ? 'active' : ''
       return (
         <a
-          className={active}
+          className={'header-link ' + active}
           alt={m.name}
           href={process.env.PUBLIC_URL + m.url}
         >
@@ -55,18 +71,9 @@ const index = (props) => {
 }
 
 index.defaultProps = {
-  cols: {
-    xl: 9,
-    lg: 9,
-    md: 9,
-    sm: 8,
-    xs: 8
-  },
-  align: {
-    horizontal: 'center',
-    vertical: 'center'
-  },
-  menu: [{ name: 'Início', url: '/' }],
+  cols: {},
+  align: {},
+  menu: [],
   //
   expand: 'md'
 }

@@ -66,7 +66,7 @@
     }
   }
 
-  /* estilo e compoetamento */
+  /* estilo e comportamento */
   .offcanvasWrapper {
     overflow: auto;
 
@@ -82,158 +82,14 @@
     flex-direction: column;
 
     height: 100%;
-    padding: 90px 35px 0;
+    padding: 40px 15px 0;
 
-    @media #{$sm-layout} {
-      padding: 70px 25px 0;
-    }
-  }
-
-  /* offcanvas settings */
-
-  .offcanvasNavigation {
-    margin-bottom: 50px;
-    ul {
-      li {
-        &.menuItemHasChildren {
-          .subMenu {
-            visibility: hidden;
-
-            height: 0;
-
-            transition: 0.3s;
-
-            opacity: 0;
-          }
-
-          &.active {
-            & > .subMenu {
-              visibility: visible;
-
-              height: 100%;
-
-              opacity: 1;
-            }
-          }
-        }
-      }
-    }
-
-    ul {
-      &.subMenu {
-        margin-left: 25px;
-        padding-left: 0;
-
-        transition: 0.3s;
-        & > li {
-          & > a {
-            font-size: 13px;
-            font-weight: 400;
-
-            padding: 10px 0;
-            &:hover {
-              //color: $theme-color;
-            }
-
-            @media #{$sm-layout} {
-              font-size: 13px;
-              line-height: 18px;
-            }
-          }
-        }
-      }
-      li {
-        a {
-          font-weight: 600;
-
-          display: block;
-
-          padding: 10px 0;
-
-          color: #111;
-          &:hover {
-            //color: $theme-color;
-          }
-          text-transform: uppercase;
-
-          @media #{$sm-layout} {
-            font-size: 14px;
-            line-height: 20px;
-          }
-        }
-
-        &.menuItemHasChildren {
-          position: relative;
-
-          display: block;
-          a {
-            display: block;
-          }
-
-          &.active {
-            & > .menuExpand {
-              i {
-                &:before {
-                  transform: rotate(0);
-                }
-              }
-            }
-          }
-
-          .menuExpand {
-            line-height: 50px;
-
-            position: absolute;
-            top: -5px;
-            right: auto;
-            left: 95%;
-
-            width: 30px;
-            height: 50px;
-
-            cursor: pointer;
-            text-align: center;
-
-            i {
-              position: relative;
-
-              display: block;
-
-              width: 10px;
-              margin-top: 25px;
-
-              transition: all 250ms ease-out;
-
-              border-bottom: 1px solid;
-              &:before {
-                position: absolute;
-                top: 0;
-
-                display: block;
-
-                width: 100%;
-
-                content: "";
-                transform: rotate(90deg);
-
-                border-bottom: 1px solid;
-              }
-            }
-          }
-        }
-      }
-    }
   }
 
   //
-
   .offcanvasWidgetArea {
     margin-top: auto;
     margin-bottom: 35px;
-
-    @media #{$sm-layout} {
-      margin-bottom: 30px;
-    }
   }
 
 }

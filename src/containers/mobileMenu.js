@@ -3,18 +3,10 @@ import MobileNavMenu from '../components/mobileMenuNav'
 import MobileWidgets from "../components/mobileNavContatos";
 import { IoMdClose } from 'react-icons/io'
 
-const MobileMenu = (prop) => {
+const MobileMenu = (props) => {
   useEffect(() => {
     const offCanvasNav = document.querySelector('#offcanvas-navigation')
-    const offCanvasNavSubMenu = offCanvasNav.querySelectorAll(`.subMenu`)
     const anchorLinks = offCanvasNav.querySelectorAll('a')
-
-    for (let i = 0; i < offCanvasNavSubMenu.length; i++) {
-      offCanvasNavSubMenu[i].insertAdjacentHTML(
-        'beforebegin',
-        `<span class="menuExpand"><i></i></span>`
-      )
-    }
 
     const menuExpand = offCanvasNav.querySelectorAll('.menuExpand')
     const numMenuExpand = menuExpand.length
@@ -52,9 +44,9 @@ const MobileMenu = (prop) => {
       </button>
       <div className='offcanvasWrapper'>
         <div className='offcanvasInnerContent'>
-          <MobileNavMenu />
+          <MobileNavMenu menu={props.menu} />
 
-          <MobileWidgets />
+          <MobileWidgets data={props.menu} />
         </div>
       </div>
     </div>

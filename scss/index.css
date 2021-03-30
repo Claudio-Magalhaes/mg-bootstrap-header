@@ -10,13 +10,9 @@
   top: 0;
   right: 0;
   left: 0;
-  transition-duration: 700ms;
+  transition-duration: 1500ms;
   padding-left: 1.5rem;
 }
-#site-header.stick {
-  position: fixed;
-}
-
 #site-header .mainMenu, #site-header .mainMenu2 {
   position: relative;
   display: flex;
@@ -32,7 +28,20 @@
   opacity: 1;
   padding: 0.5rem;
 }
-
+#site-header .offcanvasNavigation ul, #site-header .offcanvasWidgetArea ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 10px;
+}
+#site-header .offcanvasNavigation li a, #site-header .offcanvasNavigation li span, #site-header .offcanvasWidgetArea li a, #site-header .offcanvasWidgetArea li span {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 1;
+  display: block;
+  padding: 10px 0;
+}
 #site-header .mobile-aside-button {
   font-size: 34px;
   width: 30px;
@@ -52,12 +61,75 @@
   outline: none;
 }
 
+#site-header.dark {
+  background-color: black;
+}
+#site-header.dark svg {
+  color: white;
+}
+#site-header.dark svg:hover {
+  color: gray;
+}
+#site-header.dark .mainMenu li a, #site-header.dark .mainMenu li span, #site-header.dark .mainMenu2 li a, #site-header.dark .mainMenu2 li span {
+  color: white;
+}
+#site-header.dark .mainMenu li a:hover, #site-header.dark .mainMenu li span:hover, #site-header.dark .mainMenu2 li a:hover, #site-header.dark .mainMenu2 li span:hover {
+  color: gray;
+}
+#site-header.dark .offcanvasWidgetArea li a, #site-header.dark .offcanvasWidgetArea li span, #site-header.dark .offcanvasNavigation li a, #site-header.dark .offcanvasNavigation li span {
+  color: black;
+}
+#site-header.dark .offcanvasWidgetArea li a:hover, #site-header.dark .offcanvasWidgetArea li span:hover, #site-header.dark .offcanvasNavigation li a:hover, #site-header.dark .offcanvasNavigation li span:hover {
+  color: gray;
+}
+#site-header.light {
+  background-color: aliceblue;
+}
+#site-header.light svg {
+  color: black;
+}
+#site-header.light svg:hover {
+  color: gray;
+}
+#site-header.light .mainMenu li a, #site-header.light .mainMenu li span, #site-header.light .mainMenu2 li a, #site-header.light .mainMenu2 li span {
+  color: black;
+}
+#site-header.light .mainMenu li a:hover, #site-header.light .mainMenu li span:hover, #site-header.light .mainMenu2 li a:hover, #site-header.light .mainMenu2 li span:hover {
+  color: gray;
+}
+#site-header.light .offcanvasWidgetArea li a, #site-header.light .offcanvasWidgetArea li span, #site-header.light .offcanvasNavigation li a, #site-header.light .offcanvasNavigation li span {
+  color: black;
+}
+#site-header.light .offcanvasWidgetArea li a:hover, #site-header.light .offcanvasWidgetArea li span:hover, #site-header.light .offcanvasNavigation li a:hover, #site-header.light .offcanvasNavigation li span:hover {
+  color: gray;
+}
+#site-header.primary {
+  background-color: #007bff;
+}
+#site-header.primary svg {
+  color: black;
+}
+#site-header.primary svg:hover {
+  color: gray;
+}
+#site-header.primary .mainMenu li a, #site-header.primary .mainMenu li span, #site-header.primary .mainMenu2 li a, #site-header.primary .mainMenu2 li span {
+  color: black;
+}
+#site-header.primary .mainMenu li a:hover, #site-header.primary .mainMenu li span:hover, #site-header.primary .mainMenu2 li a:hover, #site-header.primary .mainMenu2 li span:hover {
+  color: gray;
+}
+#site-header.primary .offcanvasWidgetArea li a, #site-header.primary .offcanvasWidgetArea li span, #site-header.primary .offcanvasNavigation li a, #site-header.primary .offcanvasNavigation li span {
+  color: #007bff;
+}
+#site-header.primary .offcanvasWidgetArea li a:hover, #site-header.primary .offcanvasWidgetArea li span:hover, #site-header.primary .offcanvasNavigation li a:hover, #site-header.primary .offcanvasNavigation li span:hover {
+  color: gray;
+}
+
 #site-header {
   /* offcanvas mobile menu */
   /* close btn */
-  /* estilo e compoetamento */
+  /* estilo e comportamento */
   /* compotamento interno/"dos filhos" */
-  /* offcanvas settings */
 }
 #site-header .offcanvasMobileMenu {
   position: fixed;
@@ -116,102 +188,11 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 90px 35px 0;
-}
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  #site-header .offcanvasInnerContent {
-    padding: 70px 25px 0;
-  }
-}
-#site-header .offcanvasNavigation {
-  margin-bottom: 50px;
-}
-#site-header .offcanvasNavigation ul li.menuItemHasChildren .subMenu {
-  visibility: hidden;
-  height: 0;
-  transition: 0.3s;
-  opacity: 0;
-}
-#site-header .offcanvasNavigation ul li.menuItemHasChildren.active > .subMenu {
-  visibility: visible;
-  height: 100%;
-  opacity: 1;
-}
-#site-header .offcanvasNavigation ul.subMenu {
-  margin-left: 25px;
-  padding-left: 0;
-  transition: 0.3s;
-}
-#site-header .offcanvasNavigation ul.subMenu > li > a {
-  font-size: 13px;
-  font-weight: 400;
-  padding: 10px 0;
-}
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  #site-header .offcanvasNavigation ul.subMenu > li > a {
-    font-size: 13px;
-    line-height: 18px;
-  }
-}
-#site-header .offcanvasNavigation ul li a {
-  font-weight: 600;
-  display: block;
-  padding: 10px 0;
-  color: #111;
-  text-transform: uppercase;
-}
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  #site-header .offcanvasNavigation ul li a {
-    font-size: 14px;
-    line-height: 20px;
-  }
-}
-#site-header .offcanvasNavigation ul li.menuItemHasChildren {
-  position: relative;
-  display: block;
-}
-#site-header .offcanvasNavigation ul li.menuItemHasChildren a {
-  display: block;
-}
-#site-header .offcanvasNavigation ul li.menuItemHasChildren.active > .menuExpand i:before {
-  transform: rotate(0);
-}
-#site-header .offcanvasNavigation ul li.menuItemHasChildren .menuExpand {
-  line-height: 50px;
-  position: absolute;
-  top: -5px;
-  right: auto;
-  left: 95%;
-  width: 30px;
-  height: 50px;
-  cursor: pointer;
-  text-align: center;
-}
-#site-header .offcanvasNavigation ul li.menuItemHasChildren .menuExpand i {
-  position: relative;
-  display: block;
-  width: 10px;
-  margin-top: 25px;
-  transition: all 250ms ease-out;
-  border-bottom: 1px solid;
-}
-#site-header .offcanvasNavigation ul li.menuItemHasChildren .menuExpand i:before {
-  position: absolute;
-  top: 0;
-  display: block;
-  width: 100%;
-  content: "";
-  transform: rotate(90deg);
-  border-bottom: 1px solid;
+  padding: 40px 15px 0;
 }
 #site-header .offcanvasWidgetArea {
   margin-top: auto;
   margin-bottom: 35px;
-}
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  #site-header .offcanvasWidgetArea {
-    margin-bottom: 30px;
-  }
 }
 
 /*# sourceMappingURL=index.css.map */

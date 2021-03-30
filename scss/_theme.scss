@@ -1,0 +1,94 @@
+#site-header {
+  &.dark {
+    background-color: black;
+    svg {
+      color: white;
+      &:hover {
+        color: gray;
+      }
+    }
+    .mainMenu, .mainMenu2 {
+      li {
+        a, span {
+          color: white;
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+
+    .offcanvasWidgetArea, .offcanvasNavigation {
+      li {
+        a, span {
+          color: black;
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+  }
+
+  &.light {
+    background-color: aliceblue;
+    svg {
+      color: black;
+      &:hover {
+        color: gray;
+      }
+    }
+    .mainMenu, .mainMenu2 {
+      li {
+        a, span {
+          color: black;
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+
+    .offcanvasWidgetArea, .offcanvasNavigation {
+      li {
+        a, span {
+          color: black;
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+  }
+
+  &.primary {
+    background-color: #007bff;
+    svg {
+      color: black;
+      &:hover {
+        color: gray;
+      }
+    }
+    .mainMenu, .mainMenu2 {
+      li {
+        a, span {
+          color: black;
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+
+    .offcanvasWidgetArea, .offcanvasNavigation {
+      li {
+        a, span {
+          color: #007bff;
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+  }
+}

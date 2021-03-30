@@ -14,13 +14,9 @@ body {
   top: 0;
   right: 0;
   left: 0;
-  transition-duration: 700ms;
+  transition-duration: 1500ms;
   padding-left: 1.5rem;
 }
-#site-header.stick {
-  position: fixed;
-}
-
 #site-header .mainMenu, #site-header .mainMenu2 {
   position: relative;
   display: flex;
@@ -36,7 +32,6 @@ body {
   opacity: 1;
   padding: 0.5rem;
 }
-
 #site-header .mobile-aside-button {
   font-size: 34px;
   width: 30px;
@@ -54,6 +49,13 @@ body {
 }
 #site-header .mobile-aside-button:focus {
   outline: none;
+}
+
+#site-header {
+  background-color: black;
+}
+#site-header .dark .mainMenu li a, #site-header .dark .mainMenu li span, #site-header .dark .mainMenu2 li a, #site-header .dark .mainMenu2 li span {
+  color: white;
 }
 
 #site-header {
@@ -219,7 +221,6 @@ body {
 }
 
 #site-header {
-  background-color: black;
   height: 100px;
   padding: 5px;
 }

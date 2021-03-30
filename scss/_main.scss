@@ -1,0 +1,80 @@
+#site-header {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  left: 0;
+  transition-duration: 1500ms; // enviar para js
+  padding-left: 1.5rem;
+
+
+  // MENUS
+  .mainMenu, .mainMenu2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: outside none none;
+
+    li {
+      a, span{
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        opacity: 1;
+        padding: .5rem;
+      }
+    }
+  }
+
+  // MENUS
+  .offcanvasNavigation, .offcanvasWidgetArea {
+    ul {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 10px;
+    }
+
+    li {
+      a, span{
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        opacity: 1;
+
+        display: block;
+        padding: 10px 0;
+
+      }
+    }
+  }
+
+
+    // MOBILE BTN
+  .mobile-aside-button {
+    font-size: 34px;
+
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    cursor: pointer;
+
+    border: none;
+    background: none;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      margin-top: 5px;
+
+      vertical-align: top;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

@@ -14,6 +14,9 @@ const index = (props) => {
   const offsetClass = {
     offset: props.offsetReact.offset ? props.offsetReact.offset : 100,
     classBar: props.offsetReact.classBar ? props.offsetReact.classBar : '',
+    logo: props.offsetReact.classMenu
+      ? props.offsetReact.classMenu
+      : 'offsetAction',
     classMenu: props.offsetReact.classMenu
       ? props.offsetReact.classMenu
       : 'offsetAction',
@@ -48,11 +51,12 @@ const index = (props) => {
         id='site-header'
         className={`header d-flex
           align-items-${props.align.bar ? props.align.bar : 'end'}
-          ${scroll > headerTop ? offsetClass.classBar : ''}
+          ${scroll > headerTop ? offsetClass.classBar : ''} ${props.theme}
         `}
       >
         <Row className='container-fluid'>
           <Logo
+            offsetClass={scroll > headerTop ? offsetClass.classMenu : ''}
             logo={props.logo}
             cols={props.cols.logo}
             align={props.align.logo}
@@ -85,7 +89,7 @@ const index = (props) => {
           />
         </Row>
         {/* Mobile Menu */}
-        <MobileMenu />
+        <MobileMenu menu={props.menu} menu2={props.menu2} />
         {/* <MobileMenu setSweet={d => setSweet(d)} /> */}
       </header>
     </Fragment>
@@ -93,6 +97,7 @@ const index = (props) => {
 }
 
 index.defaultProps = {
+  theme: '',
   cols: {},
   align: {},
   expand: {},
@@ -100,6 +105,8 @@ index.defaultProps = {
 }
 
 index.propTypes = {
+  // TEMA
+  theme: propTypes.oneOf(['dark']),
   // COLUNAS
   cols: propTypes.shape({
     logo: propTypes.shape({
@@ -169,6 +176,7 @@ index.propTypes = {
   offsetReact: propTypes.shape({
     offset: propTypes.oneOf(['offsetHeight', 'offsetTop', propTypes.number]),
     classBar: propTypes.string,
+    logo: propTypes.string,
     classMenu: propTypes.string,
     classMenu2: propTypes.string,
     classBtnMobile: propTypes.string

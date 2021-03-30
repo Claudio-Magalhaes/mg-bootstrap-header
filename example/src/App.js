@@ -13,26 +13,17 @@ const App = () => {
   return (
     <Router>
       <Header
-        logo={{
-          base: logo,
-          sm: logoXL,
-          xs: logoXS,
-        }}
+        theme='dark'
+        logo={logo}
         menu={[
           { name: 'Início', url: '/' },
           { name: 'Sobre', url: '/sobre' },
           { name: 'Serviços', action: () => alert('action') },
-          { name: 'Quem Somos', url: '/' },
-          { name: 'Contato', render: () => (
-              <Button
-                variant='outline-success'
-                size='sm'
-              >contato</Button>
-            )}
+          { name: 'Quem Somos', url: '/' }
         ]}
         align={{
           bar: "center",
-          menu: { vertical: 'end',  horizontal: 'center' }
+          menu: { vertical: 'end' }
         }}
       />
       <div style={{height: '100rem'}} />
