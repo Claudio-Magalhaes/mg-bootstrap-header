@@ -125,6 +125,10 @@
   color: gray;
 }
 
+#site-header.stick {
+  position: fixed;
+}
+
 #site-header {
   /* offcanvas mobile menu */
   /* close btn */
