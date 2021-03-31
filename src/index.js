@@ -1,11 +1,12 @@
-import React, { Fragment, Component, useEffect, useState } from 'react'
+import React, { Fragment, Component } from 'react'
 import propTypes from 'prop-types'
-import { Row } from 'react-bootstrap'
 
 import Logo from './containers/logo'
 import Navigation from './containers/navigation'
 import BtnMenu from './components/btnMobile.js'
 import MobileMenu from './containers/mobileMenu'
+
+import '../scss/index.scss'
 
 class Header extends Component {
   constructor(props) {
@@ -15,56 +16,6 @@ class Header extends Component {
       headerTop: '',
       offsetClass: null
     }
-  }
-
-  componentDidMount() {
-    const props = this.props
-
-    const offsetClass = {
-      offset: props.offsetReact.offset ? props.offsetReact.offset : null,
-      classBar: props.offsetReact.classBar ? props.offsetReact.classBar : '',
-      logo: props.offsetReact.classMenu
-        ? props.offsetReact.classMenu
-        : 'offsetAction',
-      classMenu: props.offsetReact.classMenu
-        ? props.offsetReact.classMenu
-        : 'offsetAction',
-      classMenu2: props.offsetReact.classMenu2
-        ? props.offsetReact.classMenu2
-        : 'offsetAction',
-      classBtnMobile: props.offsetReact.classBtnMobile
-        ? props.offsetReact.classBtnMobile
-        : 'offsetAction'
-    }
-
-    let headerTop = ''
-
-    if (offsetClass.offset) {
-      const header = document.querySelector('header')
-
-      if (typeof offsetClass.offset === 'number') {
-        headerTop = offsetClass.offset
-      } else {
-        headerTop = header[offsetClass.offset]
-      }
-
-      window.addEventListener('scroll', this.handleScroll)
-    }
-
-    this.setState({
-      offsetClass: offsetClass,
-      headerTop: headerTop
-    })
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  handleScroll = () => {
-    this.setState({
-      scroll: window.scrollY
-    })
   }
 
   render() {
@@ -80,14 +31,14 @@ class Header extends Component {
           ${scroll > headerTop ? offsetClass.classBar : ''} ${props.theme}
         `}
         >
-          <Row className='container-fluid'>
+          <div className='row container-fluid'>
             <Logo
               offsetClass={scroll > headerTop ? offsetClass.classMenu : ''}
               logo={props.logo}
               cols={props.cols.logo}
               align={props.align.logo}
             />
-            {/* NAVIGATIONS */}
+
             <Navigation
               typeMenu='menu'
               offsetClass={scroll > headerTop ? offsetClass.classMenu : ''}
@@ -106,14 +57,13 @@ class Header extends Component {
                 align={props.align.menu2}
               />
             ) : null}
-            {/* NAVIGATIONS */}
             <BtnMenu
               offsetClass={scroll > headerTop ? offsetClass.classBtnMobile : ''}
               hide={props.expand.hideBtnMobile}
               cols={props.cols.btnMobile}
               align={props.align.btnMobile}
             />
-          </Row>
+          </div>
           {/* Mobile Menu */}
           <MobileMenu
             menu={props.menu}
@@ -122,7 +72,6 @@ class Header extends Component {
             contatos={props.contatos}
             bgLogo={props.bgMenuMobile}
           />
-          {/* <MobileMenu setSweet={d => setSweet(d)} /> */}
         </header>
       </Fragment>
     )
@@ -138,6 +87,8 @@ Header.defaultProps = {
 }
 
 Header.propTypes = {
+  // LOGO
+  logo: propTypes.oneOf([propTypes.string, propTypes.object]),
   // TEMA
   theme: propTypes.oneOf(['dark', 'light', 'primary', propTypes.string]),
   // COLUNAS

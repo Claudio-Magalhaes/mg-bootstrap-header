@@ -1,5 +1,4 @@
 import React from 'react'
-import { Col } from 'react-bootstrap'
 import { IoIosMenu } from 'react-icons/io'
 
 const HeaderBtn = ({ cols, hide, align, offsetClass }) => {
@@ -9,13 +8,11 @@ const HeaderBtn = ({ cols, hide, align, offsetClass }) => {
   }
 
   return (
-    <Col
-      className={`d-flex d-${hide}-none justify-content-${align.horizontal} align-items-${align.vertical}`}
-      xl={cols.xl}
-      lg={cols.lg}
-      md={cols.md}
-      sm={cols.sm}
-      xs={cols.xs}
+    <div
+      className={
+        `col d-flex d-${hide}-none justify-content-${align.horizontal} align-items-${align.vertical}` +
+        ` col-${cols.xl}-xl col-${cols.lg}-lg col-${cols.md}-md col-${cols.sm}-sm col-${cols.xs}-xs`
+      }
     >
       <div className='header-btn-wrapper'>
         <div className='mobile-button-wrapper d-block d-lg-none text-right'>
@@ -27,7 +24,7 @@ const HeaderBtn = ({ cols, hide, align, offsetClass }) => {
           </button>
         </div>
       </div>
-    </Col>
+    </div>
   )
 }
 

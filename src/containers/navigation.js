@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { Col } from 'react-bootstrap'
 
 const index = (props) => {
   const { menu, NodeMenu, expand, typeMenu, offsetClass } = props
@@ -43,14 +42,12 @@ const index = (props) => {
 
   return (
     <Fragment>
-      <Col
-        className={`d-none d-${expand}-flex justify-content-${align.horizontal}
-            align-items-${align.vertical} ${typeMenu}`}
-        xl={cols.xl}
-        lg={cols.lg}
-        md={cols.md}
-        sm={cols.sm}
-        xs={cols.xs}
+      <div
+        className={
+          `col d-none d-${expand}-flex justify-content-${align.horizontal}` +
+          ` align-items-${align.vertical} ${typeMenu} col-${cols.xl}-xl col-${cols.lg}-lg` +
+          ` col-${cols.md}-md col-${cols.sm}-sm col-${cols.xs}-xs `
+        }
       >
         {NodeMenu ? (
           <NodeMenu />
@@ -65,7 +62,7 @@ const index = (props) => {
             </ul>
           </nav>
         )}
-      </Col>
+      </div>
     </Fragment>
   )
 }

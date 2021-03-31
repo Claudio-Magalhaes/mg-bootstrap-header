@@ -1,33 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import MobileNavMenu from '../components/mobileMenuNav'
 import MobileWidgets from '../components/mobileNavContatos'
 import { IoMdClose } from 'react-icons/io'
 
 const MobileMenu = (props) => {
-  useEffect(() => {
-    const offCanvasNav = document.querySelector('#offcanvas-navigation')
-    const anchorLinks = offCanvasNav.querySelectorAll('a')
-
-    const menuExpand = offCanvasNav.querySelectorAll('.menuExpand')
-    const numMenuExpand = menuExpand.length
-
-    for (let i = 0; i < numMenuExpand; i++) {
-      menuExpand[i].addEventListener('click', (e) => {
-        sideMenuExpand(e)
-      })
-    }
-
-    for (let i = 0; i < anchorLinks.length; i++) {
-      anchorLinks[i].addEventListener('click', () => {
-        closeMobileMenu()
-      })
-    }
-  })
-
-  const sideMenuExpand = (e) => {
-    e.currentTarget.parentElement.classList.toggle('active')
-  }
-
   const closeMobileMenu = () => {
     const offcanvasMobileMenu = document.querySelector('#offcanvas-mobile-menu')
     offcanvasMobileMenu.classList.remove('active')
@@ -75,10 +51,7 @@ const MobileMenu = (props) => {
         <IoMdClose />
       </button>
       <div className='offcanvasWrapper'>
-        <div
-          style={{...style}}
-          className='offcanvasInnerContent'
-        >
+        <div style={{ ...style }} className='offcanvasInnerContent'>
           <MobileNavMenu menu={menu} />
 
           {widgets ? <MobileWidgets data={widgets} /> : null}

@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { Col } from 'react-bootstrap'
 
 const index = (props) => {
   const { logo, offsetClass } = props
@@ -22,6 +21,9 @@ const index = (props) => {
     } else if (typeof logo === 'string') {
       return <img className='site-logo' alt='logo' src={logo} />
     } else if (typeof logo === 'object') {
+      if (Object.keys(logo).length <= 0) {
+        return <h1>logo</h1>
+      }
       return (
         <Fragment>
           <img
@@ -56,17 +58,15 @@ const index = (props) => {
   }
 
   return (
-    <Col
-      className={`d-flex align-items-${align.vertical} justify-content-${align.horizontal}`}
-      xl={cols.xl}
-      lg={cols.lg}
-      md={cols.md}
-      sm={cols.sm}
-      xs={cols.xs}
+    <div
+      className={
+        `col d-flex align-items-${align.vertical} justify-content-${align.horizontal}` +
+        `col-${cols.xl}-xl col-${cols.lg}-lg col-${cols.md}-md col-${cols.sm}-sm col-${cols.xs}-xs `
+      }
     >
       {/* logo */}
       <Logo />
-    </Col>
+    </div>
   )
 }
 
