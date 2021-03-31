@@ -89,7 +89,13 @@ const index = (props) => {
           />
         </Row>
         {/* Mobile Menu */}
-        <MobileMenu menu={props.menu} menu2={props.menu2} />
+        <MobileMenu
+          menu={props.menu}
+          menu2={props.menu2}
+          pre={props.pre}
+          contatos={props.contatos}
+          bgLogo={props.bgMenuMobile}
+        />
         {/* <MobileMenu setSweet={d => setSweet(d)} /> */}
       </header>
     </Fragment>
@@ -106,7 +112,7 @@ index.defaultProps = {
 
 index.propTypes = {
   // TEMA
-  theme: propTypes.oneOf(['dark']),
+  theme: propTypes.oneOf(['dark', 'light', 'primary', propTypes.string]),
   // COLUNAS
   cols: propTypes.shape({
     logo: propTypes.shape({
@@ -180,7 +186,10 @@ index.propTypes = {
     classMenu: propTypes.string,
     classMenu2: propTypes.string,
     classBtnMobile: propTypes.string
-  })
+  }),
+  pre: propTypes.array,
+  contatos: propTypes.array,
+  bgMenuMobile: propTypes.string
 }
 
 export default index

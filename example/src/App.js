@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button"
 import logo from './assets/elooLogo.png'
 import logoXL from './assets/logoXL.png'
 import logoXS from './assets/logoXS.png'
+import logoBg from './assets/logoBgMenu.png'
 
 import Header from 'mg-bootstrap-header'
 import './index.scss'
@@ -25,6 +26,7 @@ const App = () => {
           bar: "center",
           menu: { vertical: 'end' }
         }}
+        bgMenuMobile={logoBg}
       />
       <div style={{height: '100rem'}} />
     </Router>
