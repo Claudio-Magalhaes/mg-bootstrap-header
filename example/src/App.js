@@ -27,6 +27,10 @@ const App = () => {
           menu: { vertical: 'end' }
         }}
         bgMenuMobile={logoBg}
+        offsetReact={{
+          offset: 500,
+          classBar: 'stick'
+        }}
       />
       <div style={{height: '100rem'}} />
     </Router>
