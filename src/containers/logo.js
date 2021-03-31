@@ -71,6 +71,7 @@ const index = (props) => {
 }
 
 index.defaultProps = {
+  logo: {},
   cols: {},
   align: {}
 }
