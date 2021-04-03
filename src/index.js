@@ -18,6 +18,56 @@ class Header extends Component {
     }
   }
 
+  componentDidMount() {
+    const props = this.props
+
+    const offsetClass = {
+      offset: props.offsetReact.offset ? props.offsetReact.offset : null,
+      classBar: props.offsetReact.classBar ? props.offsetReact.classBar : '',
+      logo: props.offsetReact.classMenu
+        ? props.offsetReact.classMenu
+        : 'offsetAction',
+      classMenu: props.offsetReact.classMenu
+        ? props.offsetReact.classMenu
+        : 'offsetAction',
+      classMenu2: props.offsetReact.classMenu2
+        ? props.offsetReact.classMenu2
+        : 'offsetAction',
+      classBtnMobile: props.offsetReact.classBtnMobile
+        ? props.offsetReact.classBtnMobile
+        : 'offsetAction'
+    }
+
+    let headerTop = ''
+
+    if (offsetClass.offset) {
+      const header = document.querySelector('header')
+
+      if (typeof offsetClass.offset === 'number') {
+        headerTop = offsetClass.offset
+      } else {
+        headerTop = header[offsetClass.offset]
+      }
+
+      window.addEventListener('scroll', this.handleScroll)
+    }
+
+    this.setState({
+      offsetClass: offsetClass,
+      headerTop: headerTop
+    })
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = () => {
+    this.setState({
+      scroll: window.scrollY
+    })
+  }
+
   render() {
     const { scroll, headerTop, offsetClass } = this.state
     const props = this.props
@@ -31,7 +81,7 @@ class Header extends Component {
           ${scroll > headerTop ? offsetClass.classBar : ''} ${props.theme}
         `}
         >
-          <div className='row container-fluid'>
+          <div className='row container-fluid justify-content-between'>
             <Logo
               offsetClass={scroll > headerTop ? offsetClass.classMenu : ''}
               logo={props.logo}

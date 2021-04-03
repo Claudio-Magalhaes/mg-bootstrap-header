@@ -7,8 +7,8 @@ const index = (props) => {
     xl: props.cols.xl ? props.cols.xl : 3,
     lg: props.cols.lg ? props.cols.lg : 3,
     md: props.cols.md ? props.cols.md : 3,
-    ms: props.cols.ms ? props.cols.ms : 3,
-    xs: props.cols.xs ? props.cols.xs : 8
+    sm: props.cols.sm ? props.cols.sm : 1,
+    xs: props.cols.xs ? props.cols.xs : 6
   }
   const align = {
     horizontal: props.align.horizontal ? props.align.horizontal : 'center',
@@ -60,8 +60,8 @@ const index = (props) => {
   return (
     <div
       className={
-        `col d-flex align-items-${align.vertical} justify-content-${align.horizontal}` +
-        ` col-xl-${cols.xl} col-lg-${cols.lg} col-md-${cols.md} col-sm-${cols.sm} col-xs-${cols.xs} `
+        `col root-site-logo d-flex align-items-${align.vertical} justify-content-${align.horizontal}` +
+        ` col-xl-${cols.xl} col-lg-${cols.lg} col-md-${cols.md} col-sm-${cols.sm} col-${cols.xs} `
       }
     >
       {/* logo */}

@@ -45,8 +45,8 @@ const index = (props) => {
       <div
         className={
           `col d-none d-${expand}-flex justify-content-${align.horizontal}` +
-          ` align-items-${align.vertical} ${typeMenu} col-${cols.xl}-xl col-${cols.lg}-lg` +
-          ` col-${cols.md}-md col-${cols.sm}-sm col-${cols.xs}-xs `
+          ` align-items-${align.vertical} ${typeMenu} col-xl-${cols.xl} col-lg-${cols.lg}` +
+          ` col-md-${cols.md} col-sm-${cols.sm} col-${cols.xs} `
         }
       >
         {NodeMenu ? (
