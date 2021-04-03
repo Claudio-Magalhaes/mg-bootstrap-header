@@ -61,7 +61,7 @@ const index = (props) => {
     <div
       className={
         `col d-flex align-items-${align.vertical} justify-content-${align.horizontal}` +
-        `col-${cols.xl}-xl col-${cols.lg}-lg col-${cols.md}-md col-${cols.sm}-sm col-${cols.xs}-xs `
+        ` col-xl-${cols.xl} col-lg-${cols.lg} col-md-${cols.md} col-sm-${cols.sm} col-xs-${cols.xs} `
       }
     >
       {/* logo */}
